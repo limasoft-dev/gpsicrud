@@ -12,11 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
         \App\Models\User::factory()->create([
             'name' => 'Eu User',
             'email' => 'eu@app.pt',
+        ]);
+
+        \App\Models\Task::factory()->count(25)->create([
+            'user_id' => 1,
         ]);
     }
 }
