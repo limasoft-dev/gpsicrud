@@ -18,11 +18,11 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'  => User::factory(),
-            'name'     => $this->faker->sentence,
+            'user_id' => User::factory(),
+            'name' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
             'completed' => $this->faker->boolean,
-            'deadline'  => $this->faker->dateTimeBetween('now', '+1 year'),
+            'deadline' => $this->faker->dateTimeBetween('now', '+1 year'),
         ];
     }
 }
