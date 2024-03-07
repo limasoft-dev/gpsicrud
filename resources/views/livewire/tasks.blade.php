@@ -1,4 +1,20 @@
 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+    @if (session()->has('message'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Success!</strong>
+            <span class="block sm:inline">{{ session('message') }}</span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <svg wire:click="$set('isShowingForm', false)" class="fill-current h-6 w-6 text-green-500" role="button"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <title>Close</title>
+                    <path
+                        d="M14.348 14.849a1 1 0 0 1-1.497-1.32l.083-.094L16.585 10l-3.15-3.435a1 1 0 1 1 1.414-1.415l3.5 3.5a1 1 0 0 1 0 1.414l-3.5 3.5a1 1 0 0 1-.708.293z" />
+                    <path
+                        d="M5.652 14.849a1 1 0 0 0 1.497-1.32l-.083-.094L3.415 10l3.15-3.435a1 1 0 0 0-1.414-1.415l-3.5 3.5a1 1 0 0 0 0 1.414l3.5 3.5a1 1 0 0 0 .708.293z" />
+                </svg>
+            </span>
+        </div>
+    @endif
     <div class="mt-8 text-2xl flex justify-between">
         <div>Tasks</div>
         <div class="mr-2">

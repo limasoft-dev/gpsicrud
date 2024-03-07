@@ -120,6 +120,7 @@ class Tasks extends Component
     {
         $task->delete();
         $this->isDeletingTask = false;
+        session()->flash('message', 'Task deleted successfully.');
     }
 
     public function saveTask(): Void
@@ -134,6 +135,7 @@ class Tasks extends Component
                 'deadline' => $this->deadline,
                 'completed' => $this->completed,
             ]);
+            session()->flash('message', 'Task updated successfully.');
         } else {
             auth()->user()->tasks()->create([
                 'name' => $this->name,
@@ -141,10 +143,10 @@ class Tasks extends Component
                 'deadline' => $this->deadline,
                 'completed' => $this->completed,
             ]);
+            session()->flash('message', 'Task created successfully.');
         }
 
         $this->isShowingForm = false;
-        $this->isEditing = false;
         $this->resetPage();
     }
 
